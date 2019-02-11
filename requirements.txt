@@ -1,0 +1,5 @@
+easydict==1.9
+psutil==5.5.0
+falcon==1.4.1
+gunicorn==19.9.0
+meinheld==0.6.1
