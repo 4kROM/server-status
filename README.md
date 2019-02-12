@@ -36,6 +36,12 @@ Endpoints to check server status.
   curl -X GET localhost:8000/_status
   ```
 
+## How to test
+
+```bash
+python -m unittest discover -v -s tests
+```
+
 ## Maintainer
 
 Akrom Khasani | `akrom (at) volantis (dot) io`
