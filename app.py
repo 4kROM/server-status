@@ -19,5 +19,5 @@ logger.setLevel(config.LOGGING_LEVEL)
 
 api = falcon.API()
 
-api.add_route("/ping", Ping(logger))
-api.add_route("/_status", Status(logger))
+api.add_route(config.API_PING_PATH, Ping(logger))
+api.add_route(config.API_STATUS_PATH, Status(logger))
