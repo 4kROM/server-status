@@ -11,7 +11,7 @@ __all__ = ["config"]
 
 config = EasyDict({
 
-    "LOGGING_LEVEL": getenv("LOGGING_LEVEL", "WARN"),
+    "LOGGING_LEVEL": getenv("LOGGING_LEVEL", "DEBUG"),
 
     "GUNICORN_PORT": int(getenv("GUNICORN_PORT", "8000")),
     "GUNICORN_WORKERS": int(getenv("GUNICORN_WORKERS", "1")),

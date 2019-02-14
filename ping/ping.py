@@ -4,7 +4,7 @@
 created by: Akrom Khasani | akrom@volantis.io
 """
 
-from logging import Logger, getLogger
+from logging import Logger, getLogger, NullHandler
 from falcon import Request, Response
 import falcon
 import json
@@ -12,7 +12,7 @@ import json
 __all__ = ["Ping"]
 
 null_logger = getLogger(__name__)
-null_logger.disabled = True
+null_logger.addHandler(NullHandler())
 
 
 class Ping(object):
