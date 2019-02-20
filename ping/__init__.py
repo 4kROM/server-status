@@ -2,3 +2,6 @@
 # -*- coding: utf-8 -*-
 
 from .ping import *
+
+import logging
+logging.getLogger(__name__).addHandler(logging.NullHandler())

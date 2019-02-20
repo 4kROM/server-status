@@ -4,34 +4,24 @@
 created by: Akrom Khasani | akrom@volantis.io
 """
 
-from falcon import testing
+import unittest
+from webtest import TestApp
 import falcon
-
-from os.path import dirname, join, abspath
-import sys
-sys.path.insert(0, abspath(join(dirname(__file__), "..", "..")))
-
 from conf import config
 from ping import Ping
 
 
-class MyTestCase(testing.TestCase):
+class PingTestCase(unittest.TestCase):
 
     def setUp(self):
-        super(MyTestCase, self).setUp()
-
-        # Assume the hypothetical `myapp` package has a
-        # function called `create()` to initialize and
-        # return a `falcon.API` instance.
-        # self.app = myapp.create()
 
         api = falcon.API()
         api.add_route(config.API_PING_PATH, Ping())
 
-        self.app = api
+        self.app = TestApp(api)
 
 
-class TestPing(MyTestCase):
+class TestPing(PingTestCase):
 
     def test_get(self):
 
@@ -40,6 +30,13 @@ class TestPing(MyTestCase):
             "description": "This server is up and running."
         }
 
-        result = self.simulate_get(config.API_PING_PATH)
+        result = self.app.get(config.API_PING_PATH)
 
-        self.assertEqual(result.json, result_message)
+        self.assertTupleEqual(
+            (result.status, result.json),
+            (falcon.HTTP_OK, result_message)
+        )
+
+
+if __name__ == "__main__":
+    unittest.main()
