@@ -6,5 +6,6 @@ dependencies:
     - falcon==1.4.1
     - gunicorn==19.9.0
     - meinheld==0.6.1
+    - WebTest==2.0.33
 
 # vim:set ft=yaml sw=2 ts=2:
