@@ -32,10 +32,8 @@ class TestPing(PingTestCase):
 
         result = self.app.get(config.API_PING_PATH)
 
-        self.assertTupleEqual(
-            (result.status, result.json),
-            (falcon.HTTP_OK, result_message)
-        )
+        self.assertEqual(result.status, falcon.HTTP_OK)
+        self.assertEqual(result.json, result_message)
 
 
 if __name__ == "__main__":

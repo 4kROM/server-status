@@ -10,10 +10,10 @@ from conf import config
 from ping import Ping
 from status import Status
 
+logger_names = ["ping", "status"]
 handler = logging.StreamHandler()
 formatter = logging.Formatter("%(asctime)s [%(process)d] [%(levelname)s] %(name)s - %(message)s")
 handler.setFormatter(formatter)
-logger_names = ["ping", "status"]
 for name in logger_names:
     logging.getLogger(name).addHandler(handler)
     logging.getLogger(name).setLevel(config.LOGGING_LEVEL)

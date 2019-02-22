@@ -9,6 +9,7 @@ from webtest import TestApp
 import falcon
 from conf import config
 from status import Status
+from typing import Dict
 
 
 class StatusTestCase(unittest.TestCase):
@@ -28,3 +29,8 @@ class TestStatus(StatusTestCase):
         result = self.app.get(config.API_STATUS_PATH)
 
         self.assertEqual(result.status, falcon.HTTP_OK)
+        self.assertIsInstance(result.json, Dict)
+
+
+if __name__ == "__main__":
+    unittest.main()
