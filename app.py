@@ -14,14 +14,11 @@ from status import Status
 
 logger_names = [__name__, "ping", "status"]
 formatter = Formatter(config.LOGGING.FORMAT)
-
 handler = logging.StreamHandler(sys.stdout)
 handler.setFormatter(formatter)
-
 for name in logger_names:
     logging.getLogger(name).addHandler(handler)
     logging.getLogger(name).setLevel(config.LOGGING.LEVEL)
-
 logger = logging.getLogger(__name__)
 
 application = falcon.API()
