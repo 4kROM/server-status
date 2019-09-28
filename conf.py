@@ -11,13 +11,18 @@ __all__ = ["config"]
 
 config = EasyDict({
 
-    "LOGGING_LEVEL": getenv("LOGGING_LEVEL", "DEBUG"),
+    "LOGGING": {
+        "LEVEL": getenv("LOGGING_LEVEL", "DEBUG"),
+        "FORMAT": getenv("LOGGING_FORMAT", "%(asctime)s [%(process)d] [%(levelname)s] %(name)s - %(message)s")
+    },
 
-    "GUNICORN_PORT": int(getenv("GUNICORN_PORT", "8000")),
-    "GUNICORN_WORKERS": int(getenv("GUNICORN_WORKERS", "1")),
-    "GUNICORN_WORKER_CLASS": getenv("GUNICORN_WORKER_CLASS", "meinheld.gmeinheld.MeinheldWorker"),
 
-    "API_PING_PATH": getenv("API_PING_PATH", "/ping"),
-    "API_STATUS_PATH": getenv("API_STATUS_PATH", "/_status")
+    "GUNICORN": {
+        "LOGGING_LEVEL": getenv("GUNICORN_LOGGING_LEVEL", "INFO"),
+        "PORT": int(getenv("GUNICORN_PORT", "8000")),
+        "THREADS": int(getenv("GUNICORN_THREADS", "2")),
+        "WORKERS": int(getenv("GUNICORN_WORKERS", "1")),
+        "WORKER_CLASS": getenv("GUNICORN_WORKER_CLASS", "meinheld.gmeinheld.MeinheldWorker"),
+    }
 
 })

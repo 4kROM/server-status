@@ -1,6 +1,6 @@
 easydict==1.9
-psutil==5.5.0
-falcon==1.4.1
+psutil==5.6.3
+falcon==2.0.0
 gunicorn==19.9.0
-meinheld==0.6.1
+meinheld==1.0.1
 WebTest==2.0.33

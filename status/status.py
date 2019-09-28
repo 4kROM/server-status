@@ -5,10 +5,10 @@ created by: Akrom Khasani | akrom@volantis.io
 """
 
 import logging
-from falcon import Request, Response
 import falcon
 import json
 import psutil
+from falcon import Request, Response
 
 __all__ = ["Status"]
 
@@ -21,11 +21,9 @@ class Status(object):
         pass
 
     def on_get(self, request: Request, response: Response):
-        logger.debug("Receiving a GET request from '{user_agent}' on '{class_name}'".format(
-            user_agent=request.get_header("user-agent"),
-            class_name=self.__class__.__name__
+        logger.debug("Receiving a GET request from '{user_agent}'".format(
+            user_agent=request.get_header("user-agent")
         ))
-
         response.body = json.dumps({
             "cpu": {
                 "count": psutil.cpu_count(),
