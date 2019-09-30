@@ -1,6 +1,6 @@
 # Check Server Status
 
-[![](https://img.shields.io/badge/Python-3.7.x-orange.svg?style=flat-square&logo=python&logoColor=white)](https://www.python.org) [![](https://img.shields.io/badge/Falcon-1.4.x-orange.svg?style=flat-square)](https://falconframework.org/)
+[![](https://img.shields.io/badge/Python-3.7.x-orange.svg?style=flat-square&logo=python&logoColor=white)](https://www.python.org) [![](https://img.shields.io/badge/Falcon-2.0.x-orange.svg?style=flat-square)](https://falconframework.org/)
 
 ## Intorduction
 
@@ -27,7 +27,7 @@ Endpoints to check server status.
 
 - run gunicorn
   ```bash
-  gunicorn -c gunicorn_config.py app:api
+  gunicorn -c gunicorn_config.py app
   ```
 
 - hit the endpoints
